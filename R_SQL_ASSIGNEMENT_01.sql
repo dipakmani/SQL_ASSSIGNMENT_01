@@ -1,0 +1,404 @@
+CREATE DATABASE New_Ratan_Batch_SQL_ASSIGNMENT_01;
+/*
+question 1)What is the output of this join (Inner , left, right, full)
+
+Table a		table b
+		
+1		1
+1		1
+1		5
+2		5		
+2		null
+3		null
+3		null
+5		7
+null		7
+null	
+/*
+
+-- Insert into A
+INSERT INTO A (Id) VALUES
+ (1), (1), (1),
+ (2), (2),
+ (3), (3),
+ (5),
+ (NULL), (NULL);
+
+-- Insert into B
+INSERT INTO B (Id) VALUES
+ (1), (1),
+ (5), (5),
+ (NULL), (NULL), (NULL),
+ (7), (7);
+
+ SELECT * FROM A;
+ SELECT * FROM B;
+
+ -- Inner JOIN
+ SELECT * FROM A INNER JOIN B ON A.Id = B.Id;
+
+  -- LEFT JOIN
+ SELECT * FROM A LEFT JOIN B ON A.Id = B.Id;
+
+   -- RIGHT JOIN
+ SELECT * FROM A LEFT JOIN B ON A.Id = B.Id;
+
+   -- FULL OUTER JOIN
+ SELECT * FROM A FULL OUTER JOIN B ON A.Id = B.Id;
+
+  */
+ ---------------------------------------------------------------------------------------
+
+
+ question 2)What is the output of this join (Inner , left, right, full)
+
+Table b		table c
+		
+1		1
+1		1
+1		1
+1
+1
+1				
+null
+null
+ /*
+
+ -- Create tables
+CREATE TABLE C (Id INT);
+CREATE TABLE D (Id INT);
+
+ -- Insert into C
+INSERT INTO C (Id) VALUES
+ (1), (1), (1),
+ (1), (1),
+ (1),(NULL), (NULL);
+
+-- Insert into D
+INSERT INTO D (Id) VALUES
+ (1), (1),(1);
+
+ SELECT * FROM C;
+ SELECT * FROM D;
+
+ -- Inner JOIN
+ SELECT * FROM C INNER JOIN D ON C.Id = D.Id;
+
+  -- LEFT JOIN
+ SELECT * FROM C LEFT JOIN D ON C.Id = D.Id;
+
+   -- RIGHT JOIN
+ SELECT * FROM C RIGHT JOIN D ON C.Id = D.Id;
+
+   -- FULL OUTER JOIN
+ SELECT * FROM C FULL OUTER JOIN D ON C.Id = D.Id;
+
+ --------------------------------------------------------------------------------------
+ /*
+ question 3)What is the output of this join  (Inner , left, right, full)
+
+
+Table a		table b
+		
+1		2
+1		2
+1		2
+1		2
+1		2
+1		2			
+null		null
+null		null
+
+/*
+
+--------------------------------------------------------------------------------------
+
+-- Create tables
+CREATE TABLE E (Id INT);
+CREATE TABLE F (Id INT);
+
+ -- Insert into E
+INSERT INTO E (Id) VALUES
+ (1), (1), (1),
+ (1), (1),
+ (1),(NULL), (NULL);
+
+-- Insert into F
+INSERT INTO F (Id) VALUES
+ (2), (2),(2),(2), (2),(2),
+ (NULL), (NULL);
+
+ SELECT * FROM E;
+ SELECT * FROM F;
+
+ -- Inner JOIN
+ SELECT * FROM E INNER JOIN F ON E.Id = F.Id;
+
+  -- LEFT JOIN
+ SELECT * FROM E LEFT JOIN F ON E.Id = F.Id;
+
+   -- RIGHT JOIN
+ SELECT * FROM E RIGHT JOIN F ON E.Id = F.Id;
+
+   -- FULL OUTER JOIN
+ SELECT * FROM E FULL OUTER JOIN F ON E.Id = F.Id;
+
+ -------------------------------------------------------------------------------------------
+
+ DATASET 1:
+
+CREATE TABLE SalesData (
+    SaleID INT PRIMARY KEY,
+    CustomerID INT,
+    Region VARCHAR(50),
+    ProductCategory VARCHAR(50),
+    ProductName VARCHAR(50),
+    Quantity INT,
+    Price DECIMAL(10,2),
+    SaleDate DATE,
+    PaymentMode VARCHAR(20),
+    Discount DECIMAL(5,2)
+);
+
+-- Insert sample data
+INSERT INTO SalesData VALUES
+(1, 101, 'North', 'Electronics', 'Laptop', 2, 50000, '2021-01-15', 'Credit Card', 5),
+(2, 102, 'South', 'Electronics', 'Mobile', 3, 20000, '2021-02-20', 'Cash', 10),
+(3, 103, 'East', 'Clothing', 'Shirt', 5, 1500, '2021-03-05', 'UPI', 0),
+(4, 104, 'West', 'Clothing', 'Jeans', 4, 2500, '2021-04-10', 'Credit Card', 15),
+(5, 105, 'North', 'Grocery', 'Rice', 10, 60, '2021-05-02', 'Cash', 0),
+(6, 106, 'South', 'Electronics', 'Laptop', 1, 55000, '2021-06-18', 'UPI', 5),
+(7, 107, 'East', 'Clothing', 'T-Shirt', 7, 1200, '2021-07-09', 'Credit Card', 20),
+(8, 108, 'West', 'Grocery', 'Milk', 20, 40, '2021-08-15', 'Cash', 0),
+(9, 109, 'North', 'Electronics', 'Tablet', 3, 30000, '2021-09-21', 'UPI', 10),
+(10, 110, 'South', 'Clothing', 'Shoes', 2, 4000, '2021-10-05', 'Credit Card', 5),
+(11, 101, 'North', 'Grocery', 'Wheat', 15, 45, '2021-11-12', 'Cash', 0),
+(12, 102, 'South', 'Electronics', 'Mobile', 2, 25000, '2021-12-22', 'UPI', 5),
+(13, 103, 'East', 'Clothing', 'Jacket', 1, 5000, '2022-01-10', 'Credit Card', 10),
+(14, 104, 'West', 'Electronics', 'TV', 1, 60000, '2022-02-18', 'Cash', 5),
+(15, 105, 'North', 'Grocery', 'Oil', 8, 120, '2022-03-25', 'UPI', 0),
+(16, 106, 'South', 'Clothing', 'Saree', 3, 2000, '2022-04-30', 'Credit Card', 15),
+(17, 107, 'East', 'Electronics', 'Laptop', 2, 48000, '2022-05-12', 'Cash', 10),
+(18, 108, 'West', 'Grocery', 'Sugar', 12, 50, '2022-06-28', 'UPI', 0),
+(19, 109, 'North', 'Clothing', 'Kurta', 6, 1800, '2022-07-16', 'Credit Card', 5),
+(20, 110, 'South', 'Electronics', 'Headphones', 4, 3000, '2022-08-09', 'UPI', 20);
+
+
+select * from salesdata;
+
+Q1.
+Write a query to find all records where the Region is 'North' and the ProductCategory is 'Electronics'.
+
+SELECT * FROM SalesData WHERE Region = 'North' and ProductCategory = 'Electronics';
+
+Q2.
+Retrieve all sales where the PaymentMode is 'Cash'.
+
+SELECT * FROM SalesData WHERE PaymentMode = 'Cash';
+
+Q3.
+Display all rows where the Quantity sold is greater than 5.
+
+SELECT * FROM SalesData WHERE Quantity > 5;
+
+Q4.
+Find all sales where the Region is 'South' and Price is greater than or equal to 20000.
+
+SELECT * FROM SalesData WHERE Region = 'South' and Price >= 20000;
+
+Q5.
+Retrieve all records where the ProductCategory is 'Clothing',Grocery  and Discount is less than or equal to 10.
+
+SELECT * FROM SalesData WHERE ProductCategory IN ('Clothing','Grocery') AND Discount = 10;
+
+Q6.
+Display all rows where the SaleDate is after '2022-01-01' and Region is 'East' or 'West'
+
+SELECT * FROM SalesData WHERE SaleDate > '2022-01-01' and Region IN ('East','West');
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+DATASET 2:
+
+CREATE TABLE employees1 (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    department VARCHAR(30),
+    job_title VARCHAR(50),
+    salary INT,
+    hire_date DATE,
+    city VARCHAR(30),
+    age INT,
+    gender CHAR(1)
+);
+
+
+INSERT INTO employees1 (emp_id, emp_name, department, job_title, salary, hire_date, city, age, gender)
+VALUES
+(101, 'Aman Verma', 'HR', 'HR Executive', 45000, '2019-05-12', 'Delhi', 28, 'M'),
+(102, 'Priya Singh', 'IT', 'Data Analyst', 60000, '2020-07-19', 'Mumbai', 25, 'F'),
+(103, 'Ravi Patel', 'IT', 'Software Engineer', 75000, '2018-02-25', 'Pune', 30, 'M'),
+(104, 'Neha Gupta', 'Finance', 'Accountant', 50000, '2021-09-13', 'Delhi', 27, 'F'),
+(105, 'Ankit Sharma', 'Marketing', 'SEO Specialist', 40000, '2022-01-02', 'Jaipur', 26, 'M'),
+(106, 'Pooja Mehta', 'IT', 'BI Developer', 68000, '2017-06-17', 'Bengaluru', 31, 'F'),
+(107, 'Rohit Saini', 'Sales', 'Sales Executive', 38000, '2020-11-30', 'Delhi', 24, 'M'),
+(108, 'Simran Kaur', 'Marketing', 'Content Writer', 42000, '2019-12-08', 'Chandigarh', 29, 'F'),
+(109, 'Arjun Rao', 'Finance', 'Financial Analyst', 55000, '2018-04-22', 'Hyderabad', 33, 'M'),
+(110, 'Tanya Desai', 'HR', 'HR Manager', 70000, '2016-08-10', 'Mumbai', 35, 'F');
+
+SELECT * FROM employees1;
+
+1. Retrieve all employees who work in the IT department.
+
+SELECT * FROM employees1 WHERE department = 'IT';
+
+2. Find all employees whose salary is greater than 50,000.
+
+SELECT * FROM employees1 WHERE salary > 50000;
+
+3. List employees hired after 2020-01-01.
+
+SELECT * FROM employees1 WHERE hire_date > '2020-01-01';
+
+4. Get employees who are from Delhi.
+
+SELECT * FROM employees1 WHERE city = 'Delhi';
+
+5. Show employees whose gender is 'F'.
+
+SELECT * FROM employees1 WHERE gender = 'F';
+
+6. Display all employees who are younger than 30 years old.
+
+SELECT * FROM employees1 WHERE age > 30;
+
+7. Retrieve employees who do not belong to the HR department.
+
+SELECT * FROM employees1 WHERE department NOT IN ('HR');
+
+8. Find employees not from Delhi or Mumbai.
+
+SELECT *FROM Employees1 WHERE City NOT IN ('Delhi', 'Mumbai');
+
+9. Display all female employees in Finance or HR department.
+
+SELECT *FROM Employees1 WHERE gender = 'F' and department IN ('Finance', 'HR');
+
+10. List employees whose department is not IT but salary is above 60,000.
+
+SELECT *FROM Employees1 WHERE department <> 'IT' and salary > 60000;
+
+---------------------------------------------------------------------------------------------------
+
+DATASET 3:
+
+
+Employees
+
+
+CREATE TABLE Employees2
+(
+    EmpID       INT            NOT NULL PRIMARY KEY,  -- Employee ID
+    EmpName     VARCHAR(100)   NOT NULL,             -- Employee Name
+    Department  VARCHAR(50)    NOT NULL,             -- Department Name
+    Salary      DECIMAL(12,2)  NOT NULL,             -- Salary with precision
+    DOJ         DATE           NOT NULL,             -- Date of Joining
+    Email       VARCHAR(255) )   -- Email address
+
+
+INSERT INTO Employees2 (EmpID, EmpName, Department, Salary, DOJ, Email) VALUES
+(1, 'Rohan Mehta', 'IT', 65000, '2018-03-15', 'rohan.mehta@abc.com'),
+(2, 'Anjali Singh', 'HR', 52000, '2019-07-10', 'anjali.singh@abc.com'),
+(3, 'Karan Patel', 'IT', 75000, '2017-11-05', 'karanp@abc.com'),
+(4, 'Priya Nair', 'Finance', 68000, '2020-01-20', 'priya.nair@abc.com'),
+(5, 'Mohit Sharma', 'Marketing', 60000, '2018-06-25', 'mohit.s@abc.com');
+
+
+Projects
+
+
+CREATE TABLE Projects
+(
+    ProjectID    INT           NOT NULL PRIMARY KEY,
+    EmpID        INT           NOT NULL,  -- Foreign key to Employees
+    ProjectName  VARCHAR(100)  NOT NULL,
+    StartDate    DATE          NOT NULL,
+    EndDate      DATE          NULL       -- NULL means ongoing project
+);
+
+
+
+INSERT INTO Projects (ProjectID, EmpID, ProjectName, StartDate, EndDate) VALUES
+(101, 1, 'Alpha', '2020-02-01', '2020-12-30'),
+(102, 3, 'Beta',  '2019-01-15', '2020-01-15'),
+(103, 4, 'Gamma', '2021-03-01', '2022-02-28'),
+(104, 1, 'Delta', '2021-01-01', NULL),
+(105, 5, 'Eagle', '2019-08-10', '2020-08-10');
+
+SELECT * FROM Employees2;
+SELECT * FROM Projects;
+
+QUESTION 1: Get the Employee Name, Project Name, and Experience in Years, but only for those employees:
+	whose email username (part before '@') is more than 5 characters, AND who joined before 2019, AND who are currently working on a project whose name contains the letter ‘a’ anywhere, AND project duration is at least 1 year.
+
+SELECT e.EmpID, p.ProjectName,
+DATEDIFF(YEAR, e.DOJ, GETDATE()) AS Experience_Years
+FROM Employees2 e
+JOIN Projects p ON e.EmpID = p.EmpID
+WHERE LEN(LEFT(e.email, CHARINDEX('@', e.email) - 1)) > 5
+AND e.DOJ > '2019-01-01'
+AND p.EndDate IS NULL
+AND p.ProjectName LIKE '%a%'
+AND DATEDIFF(YEAR, p.StartDate, GETDATE()) >= 1;
+
+QUESTION 2:
+Fetch all employees whose:
+Last name starts with letter ‘S’ or ‘P’, AND have worked on at least one project started in 2020,AND the project’s end date is NULL or after 2021, AND department is NOT HR.
+
+SELECT e.EmpID, e.EmpName
+FROM Employees2 e
+JOIN Projects p ON e.EmpID = p.EmpID
+WHERE RIGHT(e.EmpName, LEN(e.EmpName) - CHARINDEX(' ', e.EmpName)) LIKE '[SP]%'
+AND YEAR(p.StartDate) = 2020
+AND (p.EndDate IS NULL OR p.EndDate > '2021-01-01')
+AND e.department <> 'HR';
+
+QUESTION 3: Find employees who: have a project that ended within exactly 365–400 days, AND their department name contains ‘i’ , AND their first name  contains more than 5 letters, AND their Email domain is not 'abc.com'.
+SELECT DISTINCT
+    e.EmpID,
+    e.EmpName
+FROM Employees2 e
+JOIN Projects p
+    ON e.EmpID = p.EmpID
+WHERE DATEDIFF(DAY, p.StartDate, p.EndDate) BETWEEN 365 AND 400
+  AND e.Department LIKE '%i%'
+  AND LEN(LEFT(e.EmpName, CHARINDEX(' ', e.EmpName + ' ') - 1)) > 5
+  AND e.Email NOT LIKE '%@abc.com';
+
+
+QUESTION 4: Retrieve a combined list of employees and projects where:
+
+Employee has no matching project OR Project has no matching employee,AND if project exists, include only those where StartDate month is the same as employee’s DOJ month,
+AND employee names that contain double letters like ‘aa’, ‘ss’, ‘tt’.
+
+SELECT
+    e.EmpID,
+    e.EmpName,
+    p.ProjectID,
+    p.ProjectName
+FROM Employees2 e
+FULL OUTER JOIN Projects p
+    ON e.EmpID = p.EmpID
+WHERE
+    (e.EmpID IS NULL OR p.EmpID IS NULL)
+    AND (
+        p.ProjectID IS NULL
+        OR MONTH(p.StartDate) = MONTH(e.DOJ)
+    )
+     AND (
+        e.EmpName LIKE '%aa%'
+        OR e.EmpName LIKE '%ss%'
+        OR e.EmpName LIKE '%tt%'
+    );
+ 
